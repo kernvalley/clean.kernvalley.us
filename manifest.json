@@ -1,13 +1,13 @@
 {
-  "name": "static template",
-  "short_name": "static",
+  "name": "#KeepKernClean Generator",
+  "short_name": "#keepkernclean",
   "version": "1.0.0",
   "lang": "en",
   "dir": "ltr",
-  "description": "A template repository for static sites, including skeleton JS, CSS, SVGs, fonts, etc.",
+  "description": "#KeepKernClean badge generator for websites",
   "orientation": "any",
   "start_url": "/",
-  "theme_color": "#528ff9",
+  "theme_color": "#26472a",
   "background_color": "#242424",
   "display": "standalone",
   "icons": [{
@@ -27,16 +27,21 @@
     "purpose": "any maskable"
   }],
   "screenshots": [{
-    "src": "https://i.imgur.com/Mx3Wlp0l.jpeg",
-    "sizes": "640x313",
-    "type": "image/jpeg"
+    "src": "https://i.imgur.com/fjKHXE6l.png",
+    "sizes": "640x315",
+    "type": "image/png"
+  }, {
+    "src": "https://i.imgur.com/fjKHXE6m.png",
+    "sizes": "320x157",
+    "type": "image/png"
   }],
-  "shortcuts": [],
-  "share_target": {},
-  "categories": [],
-  "related_applications": [],
-  "developer": {
-		"name": "Chris Zuber",
-		"url": "https://kernvalley.us"
-	}
+  "features": [
+    "Generate #KeepKernClean badges",
+    "Copy generated code to clipboard or save as HTML file",
+    "Image hosted on a CDN provided by KernValley.US",
+    "URLs show UTM campaign and your given website name as source for analytics",
+    "Does not impact load times, as the image for the badge is \"lazy loaded\"",
+    "No tracking. No cookies are set and the page viewed is not given to the CDN"
+  ],
+  "categories": ["utilities", "business"]
 }

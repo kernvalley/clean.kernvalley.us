@@ -4,19 +4,16 @@ const config = {
 	version: '1.0.0',
 	fresh: [
 		'/',
-		'https://baconipsum.com/api/?paras=8&format=json&type=all-meat',
 	].map(url => new URL(url, location.origin).href),
 	stale: [
 		'/js/index.min.js',
 		'/css/index.min.css',
-		'/img/icons.svg',
-		'/img/neon.svg',
 		'https://cdn.kernvalley.us/components/toast-message.html',
 		'https://cdn.kernvalley.us/components/toast-message.css',
+		'https://cdn.kernvalley.us/components/notification/html-notification.html',
+		'https://cdn.kernvalley.us/components/notification/html-notification.css',
 		'https://cdn.kernvalley.us/components/github/user.html',
 		'https://cdn.kernvalley.us/components/github/user.css',
-		'https://cdn.kernvalley.us/components/pwa/prompt.html',
-		'https://cdn.kernvalley.us/components/pwa/prompt.css',
 		/* Social Icons for Web Share API shim */
 		'https://cdn.kernvalley.us/img/octicons/mail.svg',
 		'https://cdn.kernvalley.us/img/logos/facebook.svg',
@@ -27,6 +24,7 @@ const config = {
 		'https://cdn.kernvalley.us/img/logos/gmail.svg',
 		'https://cdn.kernvalley.us/img/adwaita-icons/actions/mail-send.svg',
 		'https://cdn.kernvalley.us/img/logos/instagram.svg',
+		'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
 		'https://cdn.kernvalley.us/fonts/roboto.woff2',
 	].map(path => new URL(path, location.origin).href),
 	allowed: [
