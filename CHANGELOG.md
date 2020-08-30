@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.1] - 2020-08-30
+
+### Added
+- Scrolling on image resizes it
+
+### Fixed
+- Allow Imgur images in CSP
+
 ## [v1.0.0] - 2020-08-30
 
 ### Initial Release

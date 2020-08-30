@@ -32,6 +32,15 @@ Promise.allSettled([
 	const ratio = img.width / img.height;
 	const link = img.parentElement;
 
+	img.addEventListener('wheel', event => {
+		if (event.deltaY !== 0 && HTMLInputElement.prototype.stepUp instanceof Function) {
+			event.preventDefault();
+			const input = document.getElementById('height');
+			input.stepUp(parseInt(input.step) * event.deltaY);
+			input.dispatchEvent(new Event('input'));
+		}
+	});
+
 	document.getElementById('height').addEventListener('input', ({ target }) => {
 		const height = parseInt(target.value);
 		const width = parseInt(ratio * height);
