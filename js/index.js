@@ -71,7 +71,9 @@ Promise.allSettled([
 
 			new HTMLNotificationElement('HTML Copied', {
 				body: 'Paste the copied HTML into your website',
-				icon: img.src,
+				icon: '/img/favicon.svg',
+				vibrate: [300, 0, 300],
+				image: 'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
 				actions: [{
 					title: 'Share',
 					action: 'share',
@@ -108,7 +110,6 @@ Promise.allSettled([
 							} else {
 								await navigator.share({ title, text, url });
 							}
-
 						});
 
 						break;
