@@ -4,6 +4,7 @@ import 'https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.m
 import 'https://cdn.kernvalley.us/components/share-button.js';
 import 'https://cdn.kernvalley.us/components/current-year.js';
 import 'https://cdn.kernvalley.us/components/github/user.js';
+import 'https://cdn.kernvalley.us/components/pwa/install.js';
 import 'https://cdn.kernvalley.us/components/share-to-button/share-to-button.js';
 import 'https://cdn.kernvalley.us/components/date-locale.js';
 import { HTMLNotificationElement } from 'https://cdn.kernvalley.us/components/notification/html-notification.js';
@@ -73,6 +74,7 @@ Promise.allSettled([
 				body: 'Paste the copied HTML into your website',
 				icon: '/img/favicon.svg',
 				vibrate: [300, 0, 300],
+				requireInteraction: true,
 				image: 'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
 				actions: [{
 					title: 'Share',
