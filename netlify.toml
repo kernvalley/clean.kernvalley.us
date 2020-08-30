@@ -14,10 +14,10 @@
     Content-Security-Policy = '''
       default-src 'self';
       base-uri 'self';
-      img-src 'self' https://*.githubusercontent.com/u/ https://i.imgur.com/ https://cdn.kernvalley.us;
+      img-src 'self' https://*.githubusercontent.com/u/ https://i.imgur.com/ https://cdn.kernvalley.us https://www.google-analytics.com/r/;
       script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io  https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/;
       style-src 'self' https://cdn.kernvalley.us;
-      connect-src 'self' https://cdn.kernvalley.us https://api.github.com/users/ https://*.githubusercontent.com/u/ https://cdn.polyfill.io https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js;
+      connect-src 'self' https://cdn.kernvalley.us https://api.github.com/users/ https://*.githubusercontent.com/u/ https://cdn.polyfill.io https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js https://www.google-analytics.com/r/;
       worker-src: 'self';
       font-src 'self' https://cdn.kernvalley.us;
       media-src 'none';
