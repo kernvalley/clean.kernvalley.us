@@ -1,7 +1,7 @@
 {
   "name": "#KeepKernClean Generator",
   "short_name": "#keepkernclean",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "lang": "en",
   "dir": "ltr",
   "description": "#KeepKernClean badge generator for websites",
