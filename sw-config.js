@@ -9,6 +9,7 @@ const config = {
 		'/js/index.min.js',
 		'/css/index.min.css',
 		'/img/favicon.svg',
+		'/img/icon-16.png',
 		'/img/apple-touch-icon.png',
 		'https://cdn.polyfill.io/v3/polyfill.min.js',
 		'https://cdn.kernvalley.us/components/toast-message.html',
