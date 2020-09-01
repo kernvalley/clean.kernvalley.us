@@ -2,4 +2,5 @@
 	--accent-color-light: #26472a;
 	--accent-color-dark: var(--accent-color-light);
 	--button-primary-active-background: #26473a;
+	--accordion-theme-color: var(--accent-color-light);
 }
