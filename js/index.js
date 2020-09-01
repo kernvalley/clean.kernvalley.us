@@ -72,87 +72,114 @@ Promise.allSettled([
 		capture: true,
 	});
 
-	link.addEventListener('click', async event => {
-		event.preventDefault();
-		const html = event.target.closest('a').outerHTML;
+	if ('clipboard' in navigator) {
+		link.addEventListener('click', async event => {
+			event.preventDefault();
+			const html = event.target.closest('a').outerHTML.replace(/[\t\n]/g, '');
 
-		if (('clipboard' in navigator) && navigator.clipboard.writeText instanceof Function) {
-			await navigator.clipboard.writeText(html).catch(() => alert('Copying to clipboard failed'));
+			if (('clipboard' in navigator) && navigator.clipboard.writeText instanceof Function) {
+				await navigator.clipboard.writeText(html).catch(() => alert('Copying to clipboard failed'));
 
-			new HTMLNotificationElement('HTML Copied', {
-				body: 'Paste the copied HTML into your website',
-				icon: '/img/favicon.svg',
-				vibrate: [300, 0, 300],
-				requireInteraction: true,
-				image: 'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
-				actions: [{
-					title: 'Share',
-					action: 'share',
-					icon: 'https://cdn.kernvalley.us/img/adwaita-icons/places/folder-publicshare.svg'
-				}, {
-					title: 'Download',
-					action: 'save',
-					icon: 'https://cdn.kernvalley.us/img/octicons/cloud-download.svg'
-				}, {
-					title: 'Dismiss',
-					action: 'close',
-					icon: 'https://cdn.kernvalley.us/img/octicons/x.svg',
-				}],
-				data: {
-					html,
-					filename: 'keep-kern-clean.html',
-					type: 'text/html',
-					share: {
-						title: 'Keep Kern Clean',
-						text: '#KeepKernClean',
-						url: 'https://kernriverconservancy.org',
+				new HTMLNotificationElement('HTML Copied', {
+					body: 'Paste the copied HTML into your website',
+					icon: '/img/favicon.svg',
+					vibrate: [300, 0, 300],
+					requireInteraction: true,
+					image: 'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
+					actions: [{
+						title: 'Share',
+						action: 'share',
+						icon: 'https://cdn.kernvalley.us/img/adwaita-icons/places/folder-publicshare.svg'
+					}, {
+						title: 'Download',
+						action: 'save',
+						icon: 'https://cdn.kernvalley.us/img/octicons/cloud-download.svg'
+					}, {
+						title: 'Dismiss',
+						action: 'close',
+						icon: 'https://cdn.kernvalley.us/img/octicons/x.svg',
+					}],
+					data: {
+						html,
+						filename: 'keep-kern-clean.html',
+						type: 'text/html',
+						share: {
+							title: 'Keep Kern Clean',
+							text: '#KeepKernClean',
+							url: 'https://kernriverconservancy.org',
+						}
 					}
-				}
-			}).addEventListener('notificationclick', async ({ notification, action }) => {
-				const { html, filename, type, share } = notification.data;
-				const { title, text, url } = share;
+				}).addEventListener('notificationclick', async ({ notification, action }) => {
+					const { html, filename, type, share } = notification.data;
+					const { title, text, url } = share;
 
-				switch(action) {
-					case 'share':
-						notification.close();
-						Promise.resolve([new File([html], filename, { type })]).then(async files => {
-							if ((navigator.canShare instanceof Function) && navigator.canShare({ title, text, url, files })) {
-								await navigator.share({ title, text, url, files });
-							} else {
-								await navigator.share({ title, text, url });
-							}
-						});
-
-						break;
-
-					case 'close':
-						notification.close();
-						break;
-
-					case 'save':
-						notification.close();
-						Promise.resolve(new File([html], filename, { type })).then(file => {
-							const url = URL.createObjectURL(file);
-							const a = document.createElement('a');
-							a.href = url;
-							a.download = file.name;
-							a.textContent = 'Download';
-							document.body.append(a);
+					switch(action) {
+						case 'share':
 							notification.close();
+							Promise.resolve([new File([html], filename, { type })]).then(async files => {
+								if ((navigator.canShare instanceof Function) && navigator.canShare({ title, text, url, files })) {
+									await navigator.share({ title, text, url, files });
+								} else {
+									await navigator.share({ title, text, url });
+								}
+							});
 
-							try {
-								a.click();
-								a.remove();
-							} catch(err) {
-								console.error(err);
-								a.scrollIntoView({ block: 'end', behavior: 'smooth' });
-							}
-						});
-						break;
-				}
-			});
-		} else {
-			alert('Clipboard not supported');
-		}
-	});
+							break;
+
+						case 'close':
+							notification.close();
+							break;
+
+						case 'save':
+							notification.close();
+							Promise.resolve(new File([html], filename, { type })).then(file => {
+								const url = URL.createObjectURL(file);
+								const a = document.createElement('a');
+								a.href = url;
+								a.download = file.name;
+								a.textContent = 'Download';
+								document.body.append(a);
+								notification.close();
+
+								try {
+									a.click();
+									a.remove();
+								} catch(err) {
+									console.error(err);
+									a.scrollIntoView({ block: 'end', behavior: 'smooth' });
+								}
+							});
+							break;
+					}
+				});
+			} else {
+				alert('Clipboard not supported');
+			}
+		});
+	} else {
+		const pre = document.createElement('pre');
+		const code = document.createElement('code');
+		pre.append(code);
+		document.querySelector('output[for="slider"]').append(pre);
+
+		link.addEventListener('click', async event => {
+			event.preventDefault();
+			const target = event.target.closest('a');
+			code.textContent = target.outerHTML.replace(/[\t\n]/g, '');
+
+			if (document.body.createTextRange) {
+				const range = document.body.createTextRange();
+				range.moveToElementText(code);
+				range.select();
+			} else if (window.getSelection) {
+				const selection = window.getSelection();
+				const range = document.createRange();
+				range.selectNodeContents(code);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		}, {
+			capture: true,
+		});
+	}
 });

@@ -8,6 +8,9 @@ const config = {
 	stale: [
 		'/js/index.min.js',
 		'/css/index.min.css',
+		'/img/favicon.svg',
+		'/img/apple-touch-icon.png',
+		'https://cdn.polyfill.io/v3/polyfill.min.js',
 		'https://cdn.kernvalley.us/components/toast-message.html',
 		'https://cdn.kernvalley.us/components/toast-message.css',
 		'https://cdn.kernvalley.us/components/notification/html-notification.html',
@@ -28,9 +31,8 @@ const config = {
 		'https://cdn.kernvalley.us/fonts/roboto.woff2',
 	].map(path => new URL(path, location.origin).href),
 	allowed: [
-		/https:\/\/secure\.gravatar\.com\/avatar\/*/,
 		/https:\/\/i\.imgur\.com\/*/,
 		/https:\/\/api\.github\.com\/users\/*/,
-		/https:\/\/*\.githubusercontent.com\/u\/*/,
+		/https:\/\/avatars\d\.githubusercontent.com\/u\/*/,
 	]
 };
