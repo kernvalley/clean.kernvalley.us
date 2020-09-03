@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.2] - 2020-09-03
+
+### Added
+- Instructions for Wix usage via a `<toast-message>`
+- General informational section describing usage and impacts on site/users
+
 ## [v1.0.1] - 2020-08-30
 
 ### Added
