@@ -56,49 +56,57 @@
 		<link rel="stylesheet" href="/css/index.min.css" media="all" />
 	</head>
 	<body id="top" class="grid font-main background-primary color-default overflow-x-hidden">
-		<br />
-		<form name="blocked" id="container-form" class="card shadow" hidden="">
-			<fieldset class="no-border">
-				<legend class="bold underline">Image &amp; Link Info</legend>
-				<details class="accordion" open="">
-					<summary class="clearfix">
-						<span>Options</span>
-						<span> </span>
-						<svg width="14" height="16" class="current-color icon" viewBox="0 0 14 16">
-							<path fill-rule="evenodd" fill="currentColor" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
-						</svg>
-					</summary>
-					<br />
-					<div class="form-group">
-						<label for="source">Site Name</label>
-						<input type="text" name="source" id="source" class="input" placeholder="Site Name" minlength="3" requried="" />
-					</div>
-					<div class="form-group">
-						<label for="medium">Medium</label>
-						<select name="medium" id="medium" class="input" required="">
-							<option value="web" selected="">Web</option>
-							<option value="email">Email</option>
-							<option value="social">Social</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="height">Image Size <ins>(height, in <abbr title="pixels">px</abbr>)</ins></label>
-						<input type="number" name="height" id="height" class="input" min="80" max="1200" value="260" step="5" />
-						<span>Width (<ins>Computed</ins>)</span>
-						<output id="width" for="height">236</output>
-					</div>
-				</details>
-			</fieldset>
-			<output for="slider" class="block center">
-				<a href="https://www.kernriverconservancy.org/?utm_source=&amp;utm_medium=web&amp;utm_campaign=keep-kern-clean" target="_blank" rel="noopener external" title="#KeepKernClean">
-					<img src="https://cdn.kernvalley.us/img/keep-kern-clean.svg" alt="#KeepKernClean" decoding="async" loading="lazy" crossorigin="anonymous" referrerpolicy="no-referrer" width="236" height="260" />
-				</a>
-			</output>
-			<div class="center" id="instructions">
-				<p class="status-box info inline-block">Click on the image to copy HTML to clipboard</p>
-			</div>
-		</form>
-		<hr />
+		<main id="main">
+			<br />
+			<form name="blocked" id="container-form" class="card shadow" hidden="">
+				<section id="info">
+					<p>This app is to generate HTML for a <a href="https://www.instagram.com/explore/tags/keepkernclean/?hl=en" rel="noopener external">#KeepKernClean</a> badge to paste onto a website. There are no special requirements, no additional JavaScript or styles to load.</p>
+					<p>The <q>Site Name</q> &amp; <q>Medium</q> fields are used to create a <q>UTM</q> link that is specific to your site and informs <a href="https://www.kernriverconservancy.org" rel="noopener external">Kern River Conserevancy</a> that the visitor clicked on a #KeepKernClean banner on your site.</p>
+					<p>There is no tracking involved in using the image for KernValley.US <abbr title="Content Delivery Network">CDN</abbr>. No cookies are set and KernValley.US does not can cannot collect any information from the usage of this image.</p>
+					<p>The image is also a <q>lazy loaded</q> <abbr title="Scalable Vector Graphic">SVG</abbr>, so it will not impact your site's load times and can be scaled to any size without any distortion or loss in quality.</p>
+					<p>If your site is a Wix site, click <button type="button" class="btn btn-default underline" data-toast="wix-instructions" title="Show Wix Instructions">here</button> for instructions on adding to your site</p>
+				</section>
+				<fieldset class="no-border">
+					<legend class="bold underline">Image &amp; Link Info</legend>
+					<details class="accordion" open="">
+						<summary class="clearfix">
+							<span>Options</span>
+							<span> </span>
+							<svg width="14" height="16" class="current-color icon" viewBox="0 0 14 16">
+								<path fill-rule="evenodd" fill="currentColor" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+							</svg>
+						</summary>
+						<br />
+						<div class="form-group">
+							<label for="source">Site Name</label>
+							<input type="text" name="source" id="source" class="input" placeholder="Site Name" minlength="3" requried="" />
+						</div>
+						<div class="form-group">
+							<label for="medium">Medium</label>
+							<select name="medium" id="medium" class="input" required="">
+								<option value="web" selected="">Web</option>
+								<option value="email">Email</option>
+								<option value="social">Social</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="height">Image Size <ins>(height, in <abbr title="pixels">px</abbr>)</ins></label>
+							<input type="number" name="height" id="height" class="input" min="80" max="1200" value="260" step="5" />
+							<span>Width (<ins>Computed</ins>)</span>
+							<output id="width" for="height">236</output>
+						</div>
+					</details>
+				</fieldset>
+				<output for="slider" class="block center">
+					<a href="https://www.kernriverconservancy.org/?utm_source=&amp;utm_medium=web&amp;utm_campaign=keep-kern-clean" target="_blank" rel="noopener external" title="#KeepKernClean">
+						<img src="https://cdn.kernvalley.us/img/keep-kern-clean.svg" alt="#KeepKernClean" decoding="async" loading="lazy" crossorigin="anonymous" referrerpolicy="no-referrer" width="236" height="260" />
+					</a>
+				</output>
+				<div class="center" id="instructions">
+					<p class="status-box info inline-block">Click on the image to copy HTML to clipboard</p>
+				</div>
+			</form>
+		</main>
 		<footer id="footer">
 			<div>
 				<button is="pwa-install" src="/service-worker.js" scope="/" class="btn btn-primary" reloadonupdate="" hidden="">Install PWA</button>
@@ -116,6 +124,19 @@
 				</div>
 			</github-user>
 		</footer>
+		<toast-message id="wix-instructions" class="custom-element if-defined" backdrop="">
+			<p class="status-box info" slot="content">Wix does not allow editing the HTML of your site, so you will have to create the element and link yourself through their <abbr title="What You See Is What You Get">WYSIWYG</abbr> editor. Just follow these simple steps.</p>
+			<ol slot="content">
+				<li>Add your site's name in the form</li>
+				<li>Right-click on the image preview and click on <q>Copy Link Address</q> or whichever option implies copying the link in your browser</li>
+				<li>From the Wix Dashboard, click on <q>Edit Site</q></li>
+				<li>Click on the <q>Media</q> button, then go to <q>Upload Media</q></li>
+				<li>Paste into the input field: <code>https://cdn.kernvalley.us/img/keep-kern-clean.svg</code></li>
+				<li>Select the newly uploaded image and click <q>Add to Page</q> in the bottom right</li>
+				<li>With the newly added media selected, click on the link icon, select <q>Web Address</q>, and finally paste in the URL generated from this app in step 2</li>
+			</ol>
+			<p slot="content">Since the image is an <abbr title="Scalable Vector Graphic">SVG</abbr>, it may be resized as needed or desired without any loss in quality.</p>
+		</toast-message>
 		<button type="button" is="share-button" class="btn btn-primary round shadow fixed" aria-label="Share This" text="Generate HTML for #KeepKernClean badges for your website" hidden="">
 			<svg width="16" height="16" class="current-color icon" viewBox="0 0 16 16" role="image" aria-hidden="true">
 				<path fill="currentColor" d="M5.969 7.969a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0zm9.969 5a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0zm0-10a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0z" overflow="visible"/>

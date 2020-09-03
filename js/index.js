@@ -26,6 +26,16 @@ Promise.allSettled([
 	ready(),
 	loadScript('https://cdn.polyfill.io/v3/polyfill.min.js'),
 ]).then(async () => {
+	document.querySelectorAll('[data-toast]').forEach(el => {
+		el.addEventListener('click', async ({ target }) => {
+			await customElements.whenDefined('toast-message');
+			document.getElementById(target.closest('[data-toast]').dataset.toast).show();
+		}, {
+			passive: true,
+			capture: true,
+		});
+	});
+
 	document.forms.blocked.addEventListener('submit', event => event.preventDefault());
 	document.forms.blocked.hidden = false;
 	const img = document.querySelector('img');
