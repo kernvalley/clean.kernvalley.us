@@ -9,7 +9,7 @@ import 'https://cdn.kernvalley.us/components/share-to-button/share-to-button.js'
 import 'https://cdn.kernvalley.us/components/date-locale.js';
 import { HTMLNotificationElement } from 'https://cdn.kernvalley.us/components/notification/html-notification.js';
 
-import { ready } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
+import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
 import { importGa } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { GA } from './consts.js';
@@ -18,27 +18,64 @@ document.documentElement.classList.replace('no-js', 'js');
 document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
 document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
 
-if (typeof GA === 'string') {
-	importGa(GA);
+if (typeof GA === 'string' && GA.length !== 0) {
+	importGa(GA).then(async () => {
+		/* global ga */
+		ga('create', GA, 'auto');
+		ga('set', 'transport', 'beacon');
+		ga('send', 'pageview');
+
+		function outbound() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'outbound',
+				eventAction: 'click',
+				eventLabel: this.href,
+				transport: 'beacon',
+			});
+		}
+
+		function madeCall() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'call',
+				eventLabel: 'Called',
+				transport: 'beacon',
+			});
+		}
+
+		function generated() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'action',
+				eventLabel: 'Generated',
+				transport: 'beacon',
+			});
+		}
+
+		await ready();
+
+		$('a[rel~="external"]:not([title="#KeepKernClean"])').click(outbound, { passive: true, capture: true });
+		$('a[href^="tel:"]').click(madeCall, { passive: true, capture: true });
+		$('#preview > a').click(generated, { passive: true, capture: true });
+	});
 }
 
 Promise.allSettled([
 	ready(),
 	loadScript('https://cdn.polyfill.io/v3/polyfill.min.js'),
 ]).then(async () => {
-	document.querySelectorAll('[data-toast]').forEach(el => {
-		el.addEventListener('click', async ({ target }) => {
-			await customElements.whenDefined('toast-message');
-			document.getElementById(target.closest('[data-toast]').dataset.toast).show();
-		}, {
-			passive: true,
-			capture: true,
-		});
+	$('[data-toast]').click(async ({ target }) => {
+		await customElements.whenDefined('toast-message');
+		document.getElementById(target.closest('[data-toast]').dataset.toast).show();
+	}, {
+		passive: true,
+		capture: true,
 	});
 
 	document.forms.blocked.addEventListener('submit', event => event.preventDefault());
 	document.forms.blocked.hidden = false;
-	const img = document.querySelector('img');
+	const img = document.querySelector('#preview img');
 	const ratio = img.width / img.height;
 	const link = img.parentElement;
 
