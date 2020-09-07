@@ -44,11 +44,11 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/icon-16.png" />
 		<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#26472a" />
 		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="preload" href="https://cdn.polyfill.io/v3/polyfill.min.js" as="script" type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="preload" href="https://cdn.polyfill.io/v3/polyfill.min.js" as="script" type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/notification/html-notification.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="low" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/notification/html-notification.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="low" />
-		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
-		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
+		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="preconnect" href="https://api.github.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<!-- <script type="module" src="/js/index.js" async=""></script> -->
 		<script src="/js/index.min.js" async=""></script>
@@ -97,7 +97,7 @@
 						</div>
 					</details>
 				</fieldset>
-				<output for="slider" class="block center">
+				<output for="slider" class="block center" id="preview">
 					<a href="https://www.kernriverconservancy.org/?utm_source=&amp;utm_medium=web&amp;utm_campaign=keep-kern-clean" target="_blank" rel="noopener external" title="#KeepKernClean">
 						<img src="https://cdn.kernvalley.us/img/keep-kern-clean.svg" alt="#KeepKernClean" decoding="async" loading="lazy" crossorigin="anonymous" referrerpolicy="no-referrer" width="236" height="260" />
 					</a>
@@ -138,7 +138,7 @@
 			<p slot="content">Since the image is an <abbr title="Scalable Vector Graphic">SVG</abbr>, it may be resized as needed or desired without any loss in quality.</p>
 		</toast-message>
 		<button type="button" is="share-button" class="btn btn-primary round shadow fixed" aria-label="Share This" text="Generate HTML for #KeepKernClean badges for your website" hidden="">
-			<svg width="16" height="16" class="current-color icon" viewBox="0 0 16 16" role="image" aria-hidden="true">
+			<svg width="24" height="24" class="current-color icon" viewBox="0 0 16 16" role="image" aria-hidden="true">
 				<path fill="currentColor" d="M5.969 7.969a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0zm9.969 5a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0zm0-10a2.969 2.969 0 1 1-5.938 0 2.969 2.969 0 1 1 5.938 0z" overflow="visible"/>
 				<path fill="currentColor" d="M12.625 2.156L2.562 7.031.75 7.938l1.812.906 10.032 5.062.906-1.812-8.22-4.156 8.219-4-.875-1.782z" overflow="visible"/>
 			</svg>
