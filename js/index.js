@@ -13,51 +13,35 @@ import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
 import { importGa } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { GA } from './consts.js';
+import { outbound, madeCall } from './analytics.js';
 
 document.documentElement.classList.replace('no-js', 'js');
 document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
 document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
 
 if (typeof GA === 'string' && GA.length !== 0) {
-	importGa(GA).then(async () => {
-		/* global ga */
-		ga('create', GA, 'auto');
-		ga('set', 'transport', 'beacon');
-		ga('send', 'pageview');
+	requestIdleCallback(() => {
+		importGa(GA).then(async () => {
+			/* global ga */
+			ga('create', GA, 'auto');
+			ga('set', 'transport', 'beacon');
+			ga('send', 'pageview');
 
-		function outbound() {
-			ga('send', {
-				hitType: 'event',
-				eventCategory: 'outbound',
-				eventAction: 'click',
-				eventLabel: this.href,
-				transport: 'beacon',
-			});
-		}
+			function generated() {
+				ga('send', {
+					hitType: 'event',
+					eventCategory: 'action',
+					eventLabel: 'Generated',
+					transport: 'beacon',
+				});
+			}
 
-		function madeCall() {
-			ga('send', {
-				hitType: 'event',
-				eventCategory: 'call',
-				eventLabel: 'Called',
-				transport: 'beacon',
-			});
-		}
+			await ready();
 
-		function generated() {
-			ga('send', {
-				hitType: 'event',
-				eventCategory: 'action',
-				eventLabel: 'Generated',
-				transport: 'beacon',
-			});
-		}
-
-		await ready();
-
-		$('a[rel~="external"]:not([title="#KeepKernClean"])').click(outbound, { passive: true, capture: true });
-		$('a[href^="tel:"]').click(madeCall, { passive: true, capture: true });
-		$('#preview > a').click(generated, { passive: true, capture: true });
+			$('a[rel~="external"]:not([title="#KeepKernClean"])').click(outbound, { passive: true, capture: true });
+			$('a[href^="tel:"]').click(madeCall, { passive: true, capture: true });
+			$('#preview > a').click(generated, { passive: true, capture: true });
+		});
 	});
 }
 
