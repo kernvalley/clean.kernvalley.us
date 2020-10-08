@@ -2,18 +2,19 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: Deny
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js; style-src 'self' https://cdn.kernvalley.us; worker-src 'self'; font-src https://cdn.kernvalley.us/fonts/; connect-src https://cdn.kernvalley.us https://api.github.com/users/ https://www.google-analytics.com/collect https://www.google-analytics.com/*/collect; img-src 'self' https://cdn.kernvalley.us https://avatars3.githubusercontent.com/u/ https://www.google-analytics.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js; style-src 'self' https://cdn.kernvalley.us; worker-src 'self'; font-src https://cdn.kernvalley.us/fonts/; connect-src https://cdn.kernvalley.us https://api.github.com/users/ https://www.google-analytics.com/ https://www.google-analytics.com/*/; img-src 'self' https://cdn.kernvalley.us https://avatars3.githubusercontent.com/u/ https://www.google-analytics.com;
 
 /:placeholder/
   X-Frame-Options: Deny
   X-XSS-Protection: 1; mode=block
- Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js; style-src 'self' https://cdn.kernvalley.us; worker-src 'self'; font-src https://cdn.kernvalley.us/fonts/; connect-src https://cdn.kernvalley.us https://api.github.com/users/ https://www.google-analytics.com/collect https://www.google-analytics.com/*/collect; img-src 'self' https://cdn.kernvalley.us https://avatars3.githubusercontent.com/u/ https://www.google-analytics.com;
+ Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js https://www.googletagmanager.com/gtag/js https://www.google-analytics.com/analytics.js; style-src 'self' https://cdn.kernvalley.us; worker-src 'self'; font-src https://cdn.kernvalley.us/fonts/; connect-src https://cdn.kernvalley.us https://api.github.com/users/ https://www.google-analytics.com/ https://www.google-analytics.com/*/; img-src 'self' https://cdn.kernvalley.us https://avatars3.githubusercontent.com/u/ https://www.google-analytics.com;
 
 /service-worker.js
   Content-Security-Policy: default-src: 'self'; connect-src *;
 
 /reset
   Clear-Site-Data: "*"
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us;
 
 /*
   X-Content-Type-Options: nosniff
