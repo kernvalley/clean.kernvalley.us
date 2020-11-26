@@ -1,6 +1,14 @@
+@import url("https://cdn.kernvalley.us/css/core-css/theme/default/index.css");
+@import url("https://cdn.kernvalley.us/css/core-css/theme/properties.css");
+
 :root {
 	--accent-color-light: #26472a;
 	--accent-color-dark: var(--accent-color-light);
-	--button-primary-active-background: #26473a;
+	--button-primary-background-light: var(--accent-color-light);
+	--button-primary-background-dark: var(--button-primary-background-light);
+	--button-primary-hover-background-light: var(--button-primary-background-light);
+	--button-primary-hover-background-dark: var(--button-primary-hover-background-light);
+	--button-primary-active-background-light: #26473a;
+	--button-primary-active-background-dark: var(--button-primary-active-background-light);
 	--accordion-theme-color: var(--accent-color-light);
 }
