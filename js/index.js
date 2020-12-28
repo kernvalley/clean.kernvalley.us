@@ -1,7 +1,6 @@
 import 'https://cdn.kernvalley.us/js/std-js/deprefixer.js';
 import 'https://cdn.kernvalley.us/js/std-js/shims.js';
 import 'https://cdn.kernvalley.us/js/std-js/theme-cookie.js';
-import 'https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js';
 import 'https://cdn.kernvalley.us/components/share-button.js';
 import 'https://cdn.kernvalley.us/components/current-year.js';
 import 'https://cdn.kernvalley.us/components/github/user.js';
@@ -11,7 +10,6 @@ import 'https://cdn.kernvalley.us/components/date-locale.js';
 import { HTMLNotificationElement } from 'https://cdn.kernvalley.us/components/notification/html-notification.js';
 import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
 import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
-import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
 import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { GA } from './consts.js';
 
@@ -47,7 +45,6 @@ if (typeof GA === 'string' && GA.length !== 0) {
 
 Promise.allSettled([
 	ready(),
-	loadScript('https://cdn.polyfill.io/v3/polyfill.min.js'),
 ]).then(async () => {
 	init().catch(console.error);
 	$('[data-toast]').click(async ({ target }) => {
