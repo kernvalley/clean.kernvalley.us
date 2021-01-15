@@ -17,28 +17,32 @@ document.documentElement.classList.replace('no-js', 'js');
 document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
 document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
 
+function generated() {
+	if (window.ga instanceof Function) {
+		window.ga('send', {
+			hitType: 'event',
+			eventCategory: 'action',
+			eventLabel: 'Generated',
+			transport: 'beacon',
+		});
+	}
+}
+
 if (typeof GA === 'string' && GA.length !== 0) {
 	requestIdleCallback(() => {
 		importGa(GA).then(async ({ ga }) => {
-			ga('create', GA, 'auto');
-			ga('set', 'transport', 'beacon');
-			ga('send', 'pageview');
+			if (ga instanceof Function) {
+				ga('create', GA, 'auto');
+				ga('set', 'transport', 'beacon');
+				ga('send', 'pageview');
 
-			function generated() {
-				ga('send', {
-					hitType: 'event',
-					eventCategory: 'action',
-					eventLabel: 'Generated',
-					transport: 'beacon',
-				});
+				await ready();
+
+				$('a[rel~="external"]:not([title="#KeepKernClean"])').click(externalHandler, { passive: true, capture: true });
+				$('a[href^="tel:"]').click(telHandler, { passive: true, capture: true });
+				$('a[href^="mailto:"]').click(mailtoHandler, { passive: true, capture: true });
+				$('#preview > a').click(generated, { passive: true, capture: true });
 			}
-
-			await ready();
-
-			$('a[rel~="external"]:not([title="#KeepKernClean"])').click(externalHandler, { passive: true, capture: true });
-			$('a[href^="tel:"]').click(telHandler, { passive: true, capture: true });
-			$('a[href^="mailto:"]').click(mailtoHandler, { passive: true, capture: true });
-			$('#preview > a').click(generated, { passive: true, capture: true });
 		});
 	});
 }

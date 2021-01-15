@@ -58,7 +58,7 @@
 		<!-- <link rel="stylesheet" href="/css/index.css" referrerpolicy="no-referrer" media="all" /> -->
 		<link rel="stylesheet" href="/css/index.min.css" referrerpolicy="no-referrer" media="all" />
 	</head>
-	<body id="top" class="grid font-main background-primary color-default overflow-x-hidden">
+	<body id="top" class="font-main background-primary color-default overflow-x-hidden">
 		<main id="main">
 			<br />
 			<form name="blocked" id="container-form" class="card shadow" hidden="">
@@ -109,23 +109,110 @@
 					<p class="status-box info inline-block">Click on the image to copy HTML to clipboard</p>
 				</div>
 			</form>
+			<hr />
 		</main>
 		<footer id="footer">
+			<section>
+				<h3>Share via...</h3>
+				<div class="share-targets flex row wrap space-evenly">
+					<share-to-button target="facebook" text="Generate #KeepKernClean badges for your website"></share-to-button>
+					<share-to-button target="twitter" text="Generate #KeepKernClean badges for your website"></share-to-button>
+					<share-to-button target="linkedin" text="Generate #KeepKernClean badges for your website"></share-to-button>
+				</div>
+			</section>
+			<hr />
+			<div class="flex row wrap space-around footer-links">
+				<div class="inline-block footer-links">
+					<a href="https://kernvalley.us" class="block" rel="noopener external noreferrer">
+						<svg class="icon current-color" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#web-browser"></use>
+						</svg>
+						<span>KernValley.US</span>
+					</a>
+					<a href="https://kernvalley.us/privacy/" class="block" rel="noopener external noreferrer">
+						<svg class="icon current-color" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#eye"></use>
+						</svg>
+						<span>Privacy</span>
+					</a>
+					<a href="/contact" class="block">
+						<svg class="icon current-color" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#address-book"></use>
+						</svg>
+						<span>Contact</span>
+					</a>
+					<a href="https://apps.kernvalley.us" class="block" rel="noreferrer noopener external">
+						<svg class="icon current-color" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#apps"></use>
+						</svg>
+						<span>All Apps</span>
+					</a>
+				</div>
+				<div class="inline-block footer-links">
+					<a class="block" href="https://www.facebook.com/KernValley.us/" target="_blank" rel="external noopener" itemprop="sameAs">
+						<svg class="social-icon" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#facebook"></use>
+						</svg>
+						<span>Facebook</span>
+					</a>
+					<a class="block" href="https://twitter.com/kern_valley" target="_blank" rel="external noopener" itemprop="sameAs">
+						<svg class="social-icon" width="24" height="24" fill="currentColor" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#twitter"></use>
+						</svg>
+						<span>Twitter</span>
+					</a>
+					<a class="block" href="https://instagram.com/kernvalley_us/" target="_blank" rel="noopener noreferrer external" itemprop="sameAs">
+						<img src="https://cdn.kernvalley.us/img/logos/instagram.svg" class="social-icon" loading="lazy" decoding="async" crossorigin="anonymous" referrerpolicy="no-referrer" alt="" width="20" height="20" />
+						<span>Instagram</span>
+					</a>
+					<a class="block" href="https://www.linkedin.com/company/18644791/" target="_blank" rel="external noopener" itemprop="sameAs">
+						<svg class="current-color icon social-icon" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#linkedin"></use>
+						</svg>
+						<span>LinkedIn</span>
+					</a>
+				</div>
+				<div class="inline-block">
+					<a class="block" href="https://github.com/kernvalley/" target="_blank" rel="external noopener">
+						<svg class="current-color icon social-icon" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#mark-github"></use>
+						</svg>
+						<span>GitHub Profile</span>
+					</a>
+					<a class="block" href="https://github.com/kernvalley/clean.kervalley.us" target="_blank" rel="external noopener">
+						<svg class="current-color icon social-icon" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#repo"></use>
+						</svg>
+
+						<span>GitHub Repo</span>
+					</a>
+					<a class="block" href="https://github.com/kernvalley/clean.kervalley.us/issues" target="_blank" rel="external noopener">
+						<svg class="current-color icon social-icon" role="img" aria-hidden="true">
+							<use xlink:href="/img/icons.svg#issue-opened"></use>
+						</svg>
+						<span>Report a Problem</span>
+					</a>
+				</div>
+			</div>
 			<div>
 				<button is="pwa-install" src="/service-worker.js" scope="/" class="btn btn-primary" reloadonupdate="" hidden="">Install PWA</button>
+				<app-stores class="flex row wrap app-stores"></app-stores>
 			</div>
-			<github-user user="kernvalley">
-				<h3 slot="header" class="center">Created By</h3>
-				<div slot="footer">
-					<span>©</span>
-					<time>2020</time>
-					<span itemtype="https://schema.org/Organization" itemscope="" hidden="">
-						<a href="https://kernvalley.us" target="_blank" rel="external noopener">
-							<span>KernValley.US</span>
-						</a>
-					</span>
-				</div>
-			</github-user>
+			<hr />
+			<div class="copyright flex wrap space-evenly">
+				<github-user user="kernvalley" loading="lazy">
+					<h3 slot="header" class="center">Created By</h3>
+					<div slot="footer">
+						<span>©</span>
+						<time itemprop="copyrightYear">2021</time>
+						<span itemprop="copyrightHolder" itemtype="https://schema.org/Organization" itemscope="" hidden="">
+							<a href="https://kernvalley.us" target="_blank" rel="external noopener noreferrer" itemprop="url">
+								<span itemprop="name">KernValley.US</span>
+							</a>
+						</span>
+					</div>
+				</github-user>
+			</div>
 		</footer>
 		<toast-message id="wix-instructions" class="custom-element if-defined" backdrop="">
 			<p class="status-box info" slot="content">Wix does not allow editing the HTML of your site, so you will have to create the element and link yourself through their <abbr title="What You See Is What You Get">WYSIWYG</abbr> editor. Just follow these simple steps.</p>

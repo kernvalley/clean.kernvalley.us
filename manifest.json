@@ -27,13 +27,13 @@
     "purpose": "any maskable"
   }],
   "screenshots": [{
-    "src": "https://i.imgur.com/fjKHXE6l.png",
+    "src": "https://i.imgur.com/fjKHXE6l.jpg",
     "sizes": "640x315",
-    "type": "image/png"
+    "type": "image/jpeg"
   }, {
-    "src": "https://i.imgur.com/fjKHXE6m.png",
+    "src": "https://i.imgur.com/fjKHXE6m.jpg",
     "sizes": "320x157",
-    "type": "image/png"
+    "type": "image/jpeg"
   }],
   "features": [
     "Generate #KeepKernClean badges",
@@ -43,5 +43,10 @@
     "Does not impact load times, as the image for the badge is \"lazy loaded\"",
     "No tracking. No cookies are set and the page viewed is not given to the CDN"
   ],
-  "categories": ["utilities", "business"]
+  "categories": ["utilities", "business"],
+  "prefer_related_applications": true,
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "https://clean.kernvalley.us/manifest.json"
+  }]
 }
