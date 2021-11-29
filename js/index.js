@@ -6,6 +6,7 @@ import 'https://cdn.kernvalley.us/components/current-year.js';
 import 'https://cdn.kernvalley.us/components/github/user.js';
 import 'https://cdn.kernvalley.us/components/share-to-button/share-to-button.js';
 import 'https://cdn.kernvalley.us/components/date-locale.js';
+import 'https://cdn.kernvalley.us/components/app/stores.js';
 import { HTMLNotificationElement } from 'https://cdn.kernvalley.us/components/notification/html-notification.js';
 import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
 import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
