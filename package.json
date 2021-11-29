@@ -1,6 +1,6 @@
 {
   "name": "keep-kern-clean",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "#KeepKernClean badge generator for websites",
   "config": {

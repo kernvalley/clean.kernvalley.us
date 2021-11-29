@@ -4,7 +4,6 @@ import 'https://cdn.kernvalley.us/js/std-js/theme-cookie.js';
 import 'https://cdn.kernvalley.us/components/share-button.js';
 import 'https://cdn.kernvalley.us/components/current-year.js';
 import 'https://cdn.kernvalley.us/components/github/user.js';
-import 'https://cdn.kernvalley.us/components/pwa/install.js';
 import 'https://cdn.kernvalley.us/components/share-to-button/share-to-button.js';
 import 'https://cdn.kernvalley.us/components/date-locale.js';
 import { HTMLNotificationElement } from 'https://cdn.kernvalley.us/components/notification/html-notification.js';
@@ -50,7 +49,8 @@ if (typeof GA === 'string' && GA.length !== 0) {
 Promise.allSettled([
 	ready(),
 ]).then(async () => {
-	init().catch(console.error);
+	init();
+
 	$('[data-toast]').click(async ({ target }) => {
 		await customElements.whenDefined('toast-message');
 		document.getElementById(target.closest('[data-toast]').dataset.toast).show();

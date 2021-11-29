@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="no-js border-box smooth-scroll" data-theme="auto" prefix="og: http://ogp.me/ns#" itemtype="https://schema.org/WebPage" itemscope="">
+<html lang="en" dir="ltr" class="no-js border-box smooth-scroll" data-theme="auto" prefix="og: http://ogp.me/ns#" data-service-worker="/service-worker.js" data-scope="/" data-reload-on-update="" itemtype="https://schema.org/WebPage" itemscope="">
 	<head>
 		<base href="/" />
 		<meta charset="utf-8" />
@@ -34,9 +34,10 @@
 		<meta name="msapplication-TileColor" content="#26472a" />
 		<meta name="msapplication-config" content="/browserconfig.xml" />
 		<meta name="theme-color" content="#26472a" />
+		<meta name="color-scheme" content="dark light" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="#26472a" />
 		<title itemprop="headline">#KeepKernClean Generator</title>
-		<link rel="manifest" href="/manifest.json" />
+		<link rel="manifest" href="/webapp.webmanifest" />
 		<link rel="license" href="/LICENSE" />
 		<link rel="icon" href="/img/favicon.svg" type="image/svg+xml" sizes="any" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
@@ -194,9 +195,8 @@
 					</a>
 				</div>
 			</div>
-			<div>
-				<button is="pwa-install" src="/service-worker.js" scope="/" class="btn btn-primary" reloadonupdate="" hidden="">Install PWA</button>
-				<app-stores class="flex row wrap app-stores"></app-stores>
+			<div>``
+				<app-stores class="flex row wrap space-evenly app-stores"></app-stores>
 			</div>
 			<hr />
 			<div class="copyright flex wrap space-evenly">
