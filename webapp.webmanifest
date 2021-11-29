@@ -1,7 +1,8 @@
 {
   "name": "#KeepKernClean Generator",
   "short_name": "#keepkernclean",
-  "version": "1.0.1",
+  "version": "1.0.4",
+  "id": "KeepKernClean",
   "lang": "en",
   "dir": "ltr",
   "description": "#KeepKernClean badge generator for websites",
@@ -44,9 +45,9 @@
     "No tracking. No cookies are set and the page viewed is not given to the CDN"
   ],
   "categories": ["utilities", "business"],
-  "prefer_related_applications": true,
+  "prefer_related_applications": false,
   "related_applications": [{
     "platform": "webapp",
-    "url": "https://clean.kernvalley.us/manifest.json"
+    "url": "https://clean.kernvalley.us/webapp.webmanifest"
   }]
 }
